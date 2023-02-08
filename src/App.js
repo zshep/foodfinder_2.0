@@ -8,7 +8,7 @@ function App() {
   const [getMessage, setGetMessage] = useState({})
 
   useEffect(()=>{
-    axios.get('http://localhost:5000/flask/hello').then(response => {
+    axios.get('https://shepfoodfinder.herokuapp.com/flask/hello').then(response => {
       console.log("SUCCESS", response)
       setGetMessage(response)
     }).catch(error => {
@@ -20,7 +20,7 @@ function App() {
 
   return (
     <div>
-      <h1> Obiwan has taught you well, but you are not a jedi yet</h1>
+      <h1> The force is with you, young shep, but you are not a jedi yet</h1>
 
     </div>
   );
