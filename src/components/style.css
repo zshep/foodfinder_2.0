@@ -1,11 +1,66 @@
 /*  ------------ styling for header ------------  */
+.header {
+    display: flex;
+    justify-content: center;
+    background-color: lightgreen;
+}
 
 
 
 
 
+/* ------------ styling for main    ------------ */
+main {
+    display: flex;
+
+}
+
+/* ------------ styling for aside    ------------*/
+
+aside {
+    display: block;
+    width: 20%;
+    flex-direction: column;
+    align-self: left;
+    background-color: lightgrey;
+    white-space: wrap;
+    text-decoration: none;
+
+
+}
+
+ul {
+    list-style-type: none;
+    text-decoration: none;
+
+}
+
+/* ------------ styling for sections    ------------ */
+.sectionheader {
+    display: flex;
+    justify-content: center;
+
+}
+section {
+    width: 80%;
+
+    
+}
+
+/* ------------ styling for See food    ------------ */
 
 
 
+/* ------------ styling for the addfood ------------  */
+.foodForm {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    justify-content: center;
 
-/* ------------     ------------ */
+}
+.addbtn {
+    display:flex;
+    justify-content: center;
+    margin-top: 2vh;
+}

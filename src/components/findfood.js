@@ -7,16 +7,21 @@ function Findfood () {
 
     return(
         <>
-        <h1>What should we have for dinner?</h1>
+        <div className="sectionheader">
+            <h1>What should we have for dinner?</h1>
+        
+        </div>
 
+                <div className="fooditem">
 
+                </div>
 
 
 
 
           <div className="button">
             
-            <button id="addbtn">Add a food</button>
+            <button id="addbtn">Find a food</button>
           </div>
         </>
 

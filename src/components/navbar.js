@@ -1,18 +1,23 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 
 
 
+function Navbar() {
 
-function Navbar () {
 
-
-    return(
+    return (
         <aside>
             <ul>
-                <li>Add Food</li>
-                <li>See Food</li>
-                <li>Search Food</li>
-
+                <li>
+                    <NavLink to='/addfood'>Add Food</NavLink>
+                </li>
+                <li>
+                <NavLink to='/seefood'>See Food</NavLink>
+                </li>
+                <li>
+                <NavLink to='/findfood'>Find Food</NavLink>
+                </li>
 
             </ul>
 
