@@ -10,13 +10,13 @@ function Navbar() {
         <aside>
             <ul>
                 <li>
-                    <NavLink to='/addfood'>Add Food</NavLink>
+                <NavLink to='/findfood'>Find Food</NavLink>
                 </li>
                 <li>
                 <NavLink to='/seefood'>See Food</NavLink>
                 </li>
                 <li>
-                <NavLink to='/findfood'>Find Food</NavLink>
+                    <NavLink to='/addfood'>Add Food</NavLink>
                 </li>
 
             </ul>
