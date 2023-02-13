@@ -11,7 +11,7 @@ def index():
     
     return "Hello Shep"
 
-# route to get a single food item
+# route to get a random  single food item
 @bp.route('/food')
 def food_get():
   db = get_db()
