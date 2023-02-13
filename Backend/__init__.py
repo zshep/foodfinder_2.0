@@ -13,6 +13,9 @@ def create_app(test_config=None):
   def welcome():
     return 'the force is strong with you, but your not a jedi yet'
   
+  #register routes
+  app.register_blueprint(home)
+
   init_db(app)
 
   return app
