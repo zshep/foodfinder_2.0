@@ -3,13 +3,33 @@ import React, { useState, useEffect} from "react";
 
 
 function Findfood () {
-
+    
+  //creating function to handle search food btn
+  const clickFindFood = () => {
+    console.log('the find food btn was clicked');
+    fetch('/food')
+    .then((res) => {
+      const data =  res.json();
+      return data
+      
+    })
+    .then((data) => {
+      const foodput = document.querySelector("#givenfooditem")
+      
+      console.log('the food is...', data.food)      
+      foodput.innerHTML = data.food;
+      
+    })
+    
+    .catch((error) => {
+      console.error('The fetch operation fucked up', error);
+    });
+  }
   //using use state to create JS object
-  const [fooddata, setfooddata] = useState({
+  const [data, setfooddata] = useState({
     foodname: "",
     ishot: "",
   });
-
 
   //using use effect to grab data
   useEffect(() =>{
@@ -18,34 +38,28 @@ function Findfood () {
       (res) =>res.json()
       .then(
           (data) =>
-        {
-          setfooddata(fooddata);
-          console.log(fooddata)
-
-
+          {
+          console.log(data);
+          setfooddata(data);
     })
     );
 
   }, []); // no idea what [] is supposed to be used for
-
-
-    return(
-        <>
+  
+  return(
+    <>
         <div className="sectionheader">
             <h1>What should we have for dinner?</h1>
         
         </div>
 
-                <div className="fooditem">
-                  <p>{fooddata.foodname}</p>
+                <div className="fooditem" id="givenfooditem">
+                  <p>{data.foodname}</p>
                 </div>
-
-
-
 
           <div className="button">
             
-            <button id="addbtn">Find a food</button>
+            <button id="addbtn" onClick={clickFindFood}>Find a food</button>
           </div>
         </>
 

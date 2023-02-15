@@ -1,6 +1,8 @@
+import sys
 from flask import Blueprint, jsonify, make_response, render_template, request
 from Backend.db import get_db
 from Backend.models import Food
+from sqlalchemy.sql.expression import func
 
 
 bp = Blueprint('home',__name__, url_prefix='/')
@@ -35,3 +37,17 @@ def food_get():
 
   
   return jsonify(food = food[0])
+
+# route to get all the foods
+@bp.route('/allfood')
+def get_allfood():
+  db = get_db()
+  allfood = (
+      db
+        .query(Food.foodname)
+        .all()
+    )
+  print(allfood)
+
+  
+  return jsonify(allfood = allfood[0])
