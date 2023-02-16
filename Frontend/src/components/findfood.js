@@ -11,7 +11,21 @@ function Findfood () {
   });
 
   //using use effect to grab data
-   
+  useEffect(() =>{
+    //using fetch to grab from flask server
+    fetch('/food').then(
+      (res) =>res.json()
+      .then(
+          (data) =>
+          {
+          console.log(data);
+          setfooddata(data);
+    })
+    );
+  
+  }, []); 
+
+
   const clickFindFood = () => {
     console.log('the find food btn was clicked');
     fetch('/food')

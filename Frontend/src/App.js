@@ -22,32 +22,8 @@ import {
 
 function App() {
   
-  //using use state to create JS object
-  const [data, setfooddata] = useState({
-    foodname: "",
-    ishot: "",
-  });
   
-  useEffect(() =>{
-    //using fetch to grab from flask server
-    fetch('/food').then(
-      (res) =>res.json()
-      .then(
-          (data) =>
-          {
-          console.log(data);
-          setfooddata(data);
-    })
-    );
   
-  }, []);
-
-
-
-   //creating function to handle search food btn
-   
-
-
   return (
     <div>
       <Header></Header>

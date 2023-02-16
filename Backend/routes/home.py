@@ -44,8 +44,9 @@ def get_allfood():
   db = get_db()
   allfood = (
       db
-        .query(Food.foodname)
-        .all()
+        .query(Food)
+        .order_by(Food.foodname.all_)
+        
     )
   print(allfood)
 
