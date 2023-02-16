@@ -8,9 +8,9 @@ def create_app(test_config=None):
 
 
 
-  #first route
-  @app.route('/jedi')
-  def welcome():
+  #route for server
+  @app.route('/')
+  def server():
     return 'the force is strong with you, but your not a jedi yet'
   
   #register routes

@@ -2,6 +2,10 @@
 # python
 /__pycachge__
 /venv
+Backend/venv
+Backend=__pycache__
+
+
 # dependencies
 /node_modules
 /.pnp
