@@ -4,7 +4,11 @@ import React, { useEffect, useState } from "react";
 
 function Seefood() {
 
-    const [foods, setfood] =useState([]);
+    const [foods, setfood] =useState({
+      foodname: "",
+      ishot: "",
+
+    });
 
     useEffect(() => {
         fetch("/allfood").then(
@@ -22,8 +26,6 @@ function Seefood() {
             }, []);
 
     
-
-
     return(
         <>
         <div className="sectionheader">
@@ -32,10 +34,10 @@ function Seefood() {
         </div>
         <div className="fooditem">
             {
-                foods.map(food =>(
+                foods.map(foods =>(
                     <div> 
-                        <h1>{food.foodname}</h1>
-                            <p>{food.ishot}</p>
+                        <h1>{foods.foodname}</h1>
+                            <p>{foods.ishot}</p>
                     </div>
 
 
