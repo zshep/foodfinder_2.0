@@ -1,8 +1,48 @@
-import React from "react";
+import React, { useState, useEffect} from "react";
 
 
 function Addfood() {
+    const [data, setfooddata] = useState({
+        foodname: "",
+        ishot: "",
+      });
+    
+      //using use effect to grab data
+      useEffect(() =>{
+        //using fetch to grab from flask server
+        fetch('/food').then(
+          (res) =>res.json()
+          .then(
+              (data) =>
+              {
+              console.log(data);
+              setfooddata(data);
+        })
+        );
+      
+      }, []); 
+    
 
+      const clickAddFood = () => {
+        console.log('the add food btn was clicked');
+        fetch('/addfood')
+        .then((res)=> {
+            const data =res.json();
+            return data
+        })
+        .then((data) => {
+            console.log(`${data. food} has been added to the db`)
+            window.alert('Your food has been updated')
+
+        })
+        .catch((error) => {
+
+            console.log('the fetch to add food fucked up', error)
+
+        })
+
+
+      }
 
 
     return (
@@ -22,7 +62,7 @@ function Addfood() {
                 </div>
             </form>
             <div className="addbtn">
-            <button>Add food</button>
+            <button onClick={clickAddFood}>Add food</button>
             </div>
         </>
 
