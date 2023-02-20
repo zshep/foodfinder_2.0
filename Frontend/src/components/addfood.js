@@ -1,8 +1,8 @@
-import React, { useState, useEffect} from "react";
+import React  from "react";
 
 
 function Addfood() {
-    const [data, setfooddata] = useState({
+    /* const [data, setfooddata] = useState({
         foodname: "",
         ishot: "",
       });
@@ -20,7 +20,7 @@ function Addfood() {
         })
         );
       
-      }, []); 
+      }, []);  */
     
 
       const clickAddFood = () => {
