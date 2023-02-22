@@ -1,33 +1,43 @@
-import React  from "react";
+import React, {useState, useEffect}  from "react";
 import axios from "axios";
 const foodItem = document.querySelector('#newFood');
 const checkbox = document.querySelector('#isHot');
 
 function Addfood() {
        
-
+    // creating foodData object to send to backend
+    const [foodData, setfoodData] = useState({
+        foodname: '',
+        
+    })
+    // function to grab
+    const newFood = event => {
+        const foodvalue = event.target.value
+        
+        setfoodData({
+            foodname: foodvalue
+        })
+        
+    }
+     
       const clickAddFood = () => {
         console.log('the add food btn was clicked');
-        // grabing foodname from user
-        const foodname = foodItem;
-        
-        // creating foodData object to send to backend
-        /* foodData = {
-            foodname: foodname,
-            ishot: "yes mam"
-        } */
+                      
 
         //debugging
-        console.log(`The new food is ${foodname}`)
+        
+        console.log(foodData);
+        console.log(`The new food is ${foodData.foodname}`)
         
 
-        /* axios.post('/addfood', foodData)
-        .then((res)=> {
-            const data =res.json();
-            return data
+        axios.post('/addfood', {
+            foodname: foodData.foodname,
+            ishot: true,
         })
-        .then((data) => {
-            console.log(`${data. food} has been added to the db`)
+        
+        .then((response) => {
+            console.log(response)
+            console.log(`${response} has been added to the db`)
             window.alert('Your food has been updated')
 
         })
@@ -35,7 +45,8 @@ function Addfood() {
 
             console.log('the fetch to add food fucked up', error)
         })
- */
+        
+
 
       }
 
@@ -47,11 +58,12 @@ function Addfood() {
         
         </div>
             <form className="foodForm">
-                <div>
-                    <label for="foodname">Add food here</label>
-                    <input type="text" id="newFood" name="foodname"></input>
-                    
-                        <label for="ishot">Is this food hot?</label>
+                <div className='newfoodItems'>
+                    <label htmlFor="foodname">Add food here</label>
+                    <input type="text" id="newFood" name="foodname" onChange={newFood}></input>
+                </div>
+                <div className='newfoodItems'>
+                        <label htmlFor="ishot">Is this food hot?</label>
                         <input type='checkbox' id="isHot" name="ishot"></input>
 
                 </div>

@@ -88,7 +88,7 @@ def add_food():
       return jsonify(message = 'adding new food has failed'), 500  
 
     #will need to figure out proper thing to return
-    return render_template('main.html')
+    return jsonify(newFood = newFood)
   else:
     return render_template('addfood.html')
 
