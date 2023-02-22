@@ -45,8 +45,8 @@ def get_allfood():
   try:
     allfood = (
         db
-          .query(Food.foodname)
-          .order_by(id=id)
+          .query(Food)
+          .order_by(Food.foodname)
           .first()
     )
   except:

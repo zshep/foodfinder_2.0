@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import axios from "axios";
 
 
 
@@ -11,16 +12,17 @@ function Seefood() {
     });
 
     useEffect(() => {
-        fetch("/allfood").then(
-            (res) =>res.json()
-            .then(
-                (data) =>
-                {
-                    console.log(data);
-                    setfood(data);
+        axios.get('/allfood')
+            .then((response) => {
+                console.log(response.data)
+                console.log(response.json())
+                setfood({
+                    foodname: response.data.food,
+                    ishot: response.data.ishot,
 
                 })
-
+                console.log(foods)
+            }
             )
 
             }, []);
@@ -32,18 +34,18 @@ function Seefood() {
             <h1>Here is all of your food</h1>
         
         </div>
-        <div className="fooditem">
-            {
-                foods.map(foods =>(
-                    <div> 
-                        <h1>{foods.foodname}</h1>
-                            <p>{foods.ishot}</p>
-                    </div>
+        <p>
+            
+          {/*   {foods.map(
+                { foodname, ishot} =>
+                <h1>{foodname}</h1>
+                <p>{ishot}</p>
+                </>
+            )} */}
 
 
-                ))
-            }
-        </div>
+              
+        </p>
 
           
         </>

@@ -1,31 +1,27 @@
 import React  from "react";
-
+import axios from "axios";
+const foodItem = document.querySelector('#newFood');
+const checkbox = document.querySelector('#isHot');
 
 function Addfood() {
-    /* const [data, setfooddata] = useState({
-        foodname: "",
-        ishot: "",
-      });
-    
-      //using use effect to grab data
-      useEffect(() =>{
-        //using fetch to grab from flask server
-        fetch('/food').then(
-          (res) =>res.json()
-          .then(
-              (data) =>
-              {
-              console.log(data);
-              setfooddata(data);
-        })
-        );
-      
-      }, []);  */
-    
+       
 
       const clickAddFood = () => {
         console.log('the add food btn was clicked');
-        fetch('/addfood')
+        // grabing foodname from user
+        const foodname = foodItem;
+        
+        // creating foodData object to send to backend
+        /* foodData = {
+            foodname: foodname,
+            ishot: "yes mam"
+        } */
+
+        //debugging
+        console.log(`The new food is ${foodname}`)
+        
+
+        /* axios.post('/addfood', foodData)
         .then((res)=> {
             const data =res.json();
             return data
@@ -38,9 +34,8 @@ function Addfood() {
         .catch((error) => {
 
             console.log('the fetch to add food fucked up', error)
-
         })
-
+ */
 
       }
 
