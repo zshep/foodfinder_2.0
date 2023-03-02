@@ -36,8 +36,8 @@ function Addfood() {
         })
         
         .then((response) => {
-            console.log(response)
-            console.log(`${response} has been added to the db`)
+            console.log(response.data)
+            console.log(`${response.data} has been added to the db`)
             window.alert('Your food has been updated')
 
         })
