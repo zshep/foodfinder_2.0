@@ -1,6 +1,5 @@
 import React, {useState, useEffect}  from "react";
 import axios from "axios";
-const foodItem = document.querySelector('#newFood');
 const checkbox = document.querySelector('#isHot');
 
 function Addfood() {
@@ -10,7 +9,10 @@ function Addfood() {
         foodname: '',
         
     })
-    // function to grab
+    // creating value to record if ishot btn is checked
+    const [ishot, setishot] = useState(false)
+
+    // function to grab user input for new food
     const newFood = event => {
         const foodvalue = event.target.value
         
@@ -19,20 +21,29 @@ function Addfood() {
         })
         
     }
+
+    const isHot = event => {
+        setishot(true)
+
+    }
      
       const clickAddFood = () => {
         console.log('the add food btn was clicked');
-                      
-
+        console.log(ishot);
+        // make sure that foodname is not empty
+        if (!foodData.foodname) {
+            console.log('food items cannot be null')
+            window.alert('You must enter in a food item')
+            
+        } else {
         //debugging
-        
         console.log(foodData);
         console.log(`The new food is ${foodData.foodname}`)
         
 
         axios.post('/addfood', {
             foodname: foodData.foodname,
-            ishot: true,
+            ishot: ishot,
         })
         
         .then((response) => {
@@ -45,7 +56,7 @@ function Addfood() {
 
             console.log('the fetch to add food fucked up', error)
         })
-        
+    }
 
 
       }
@@ -64,7 +75,7 @@ function Addfood() {
                 </div>
                 <div className='newfoodItems'>
                         <label htmlFor="ishot">Is this food hot?</label>
-                        <input type='checkbox' id="isHot" name="ishot"></input>
+                        <input type='checkbox' id="isHot" name="ishot" onChange={isHot}></input>
 
                 </div>
             </form>
