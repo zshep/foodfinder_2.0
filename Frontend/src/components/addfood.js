@@ -23,7 +23,14 @@ function Addfood() {
     }
 
     const isHot = event => {
-        setishot(true)
+        if (event.target.checked) {
+            console.log('the ishot box is checked')
+            setishot(true);
+        } else {
+            setishot(false);
+            console.log('the ishot box is not checked')
+        }
+        
 
     }
      
