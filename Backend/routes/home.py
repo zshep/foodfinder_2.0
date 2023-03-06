@@ -1,3 +1,4 @@
+import json
 import sys
 from flask import Blueprint, jsonify, make_response, render_template, request
 from Backend.db import get_db
@@ -35,7 +36,7 @@ def food_get():
     print(sys.exc_info()[0])
 
   print('Here comes your food')
-  print(food)
+  print(food.foodname)
 
   return jsonify(food=food[0])
 
@@ -46,21 +47,24 @@ def food_get():
 def get_allfood():
   db = get_db()
   try:
+    print('starting get all food query')
     allfood = (
         db
           .query(Food)
           .order_by(Food.foodname)
-          .first()
+          .all()
     )
   except:
     print('something went wrong with the get all food query')
     print(sys.exc_info()[0])
 
-    print('This is all of the food items')
-    """ print(allfood) """
+  
+  print('This is all of the food items')
+  print(allfood)  
+  
+  response = allfood
 
-  return jsonify(allfood=allfood[0])
-
+  return make_response(response, 201)
 
 @bp.route('/addfood', methods=['POST'])
 def add_food():

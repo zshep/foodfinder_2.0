@@ -47,6 +47,7 @@ function Addfood() {
         console.log(foodData);
         console.log(`The new food is ${foodData.foodname}`)
         
+        
 
         axios.post('/addfood', {
             foodname: foodData.foodname,
