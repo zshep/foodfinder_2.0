@@ -51,8 +51,8 @@ def get_allfood():
     allfood = (
         db
           .query(Food)
-          .order_by(Food.foodname)
-          .all()
+          .order_by(func.rand())
+          .first()
     )
   except:
     print('something went wrong with the get all food query')
@@ -60,11 +60,19 @@ def get_allfood():
 
   
   print('This is all of the food items')
-  print(allfood)  
   
-  response = allfood
 
-  return make_response(response, 201)
+  yourfoods = {
+    'foodname': allfood.foodname,
+    'ishot': allfood.ishot,
+  }
+  print('This is yourfoods', yourfoods)
+  print(yourfoods['foodname'])
+  print(yourfoods['ishot'])
+
+  response = make_response(yourfoods, 201)
+
+  return response
 
 @bp.route('/addfood', methods=['POST'])
 def add_food():
@@ -82,7 +90,7 @@ def add_food():
     # save to database
     db.add(newFood)
     db.commit()
-    print('Newfood has been added', newFood)
+    print('Newfood has been added', newFood.foodname)
     print(newFood.foodname)
 
 

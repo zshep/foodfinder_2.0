@@ -14,14 +14,16 @@ function Seefood() {
     useEffect(() => {
         axios.get('/allfood')
             .then((response) => {
+                console.log(response)
                 console.log(response.data)
-                console.log(response.json())
+                
                 setfood({
-                    foodname: response.data.food,
+                    foodname: response.data,
                     ishot: response.data.ishot,
 
                 })
                 console.log(foods)
+                console.log(response.data)
             }
             )
 
@@ -34,19 +36,10 @@ function Seefood() {
             <h1>Here is all of your food</h1>
         
         </div>
-        <p>
-            
-          {/*   {foods.map(
-                { foodname, ishot} =>
-                <h1>{foodname}</h1>
-                <p>{ishot}</p>
-                </>
-            )} */}
-
-
-              
-        </p>
-
+        <div id="allfooditems">
+            <p>                  
+            </p>
+        </div>
           
         </>
 
@@ -54,3 +47,13 @@ function Seefood() {
 }
 
 export default Seefood;
+
+
+
+
+ /*   {foods.map(
+                { foodname, ishot} =>
+                <h1>{foodname}</h1>
+                <p>{ishot}</p>
+                </>
+            )} */
