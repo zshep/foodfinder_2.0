@@ -10,22 +10,33 @@ function Seefood() {
       ishot: "",
 
     });
+    const getFood = async() => {
+        axios.get('/allfood')
+        .then((response) => {
+            console.log(response)
+            console.log(response.data)
+            console.log(response.data.foodname)
+            console.log(response.data.ishot)
+            
+            setfood({...foods, 
+                foodname: response.data.foodname,
+                ishot: response.data.ishot,
+              
+            })
+        }
+        )
+        
+        console.log(foods)
+        console.log(foods.foodname)
+        console.log(foods.ishot)
+
+    }
+
 
     useEffect(() => {
-        axios.get('/allfood')
-            .then((response) => {
-                console.log(response)
-                console.log(response.data)
-                
-                setfood({
-                    foodname: response.data,
-                    ishot: response.data.ishot,
-
-                })
-                console.log(foods)
-                console.log(response.data)
-            }
-            )
+            
+        console.log('get food will begin')
+        getFood()
 
             }, []);
 
