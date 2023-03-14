@@ -11,24 +11,22 @@ function Seefood() {
 
     });
     const getFood = async() => {
-        axios.get('/allfood')
+       await axios.get('/allfood')
         .then((response) => {
-            console.log(response)
+            
             console.log(response.data)
             console.log(response.data.foodname)
             console.log(response.data.ishot)
-            
+        
             setfood({...foods, 
                 foodname: response.data.foodname,
                 ishot: response.data.ishot,
-              
             })
+
         }
         )
         
-        console.log(foods)
-        console.log(foods.foodname)
-        console.log(foods.ishot)
+        
 
     }
 
@@ -36,7 +34,12 @@ function Seefood() {
     useEffect(() => {
             
         console.log('get food will begin')
-         getFood()
+        getFood()
+        console.log('attempting to set the state of food')
+        
+        console.log(foods)
+        console.log('the foodname is...', foods.foodname)
+        console.log('is the food hot?', foods.ishot)
 
             }, []);
 

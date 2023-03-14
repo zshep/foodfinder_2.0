@@ -10,13 +10,16 @@ function Findfood () {
     axios.get('/food')
     .then((response) => {
 
-      const foodData = response.data;
+      
+      console.log(response.data)
+      
+      const foodnameData = response.data.foodname;
 
       const foodput = document.querySelector("#givenfooditem")
       
-      console.log('the food is...', foodData.food);
+      console.log('the food is...', foodnameData)
          
-      foodput.innerHTML = foodData.food;
+      foodput.innerHTML = foodnameData;
       
     })
     

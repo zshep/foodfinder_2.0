@@ -26,7 +26,7 @@ def food_get():
     print('starting query')
     food = (
       db
-        .query(Food.foodname)
+        .query(Food)
         .order_by(func.rand())
         .first()
     )
@@ -37,8 +37,14 @@ def food_get():
 
   print('Here comes your food')
   print(food.foodname)
+  print(food.ishot)
 
-  return jsonify(food=food[0])
+  response = {
+    'foodname': food.foodname,
+    'ishot': food.ishot
+  }
+
+  return make_response(response, 201)
 
 # route to get all the foods
 
@@ -61,12 +67,17 @@ def get_allfood():
   
   print('This is all of the food items')
   for food in allfood:
-    print ('Foodname:', food.foodname, 'ishot:', food.ishot)
+    response = {
+      'foodname': food.foodname,
+      'ishot': food.ishot,
+    }
+  
+  print(food)
+  print(allfood)
+  
+  print(food.foodname)
 
-
-  response = make_response(food, 201)
-
-  return response
+  return make_response(response, 201)
 
 @bp.route('/addfood', methods=['POST'])
 def add_food():
