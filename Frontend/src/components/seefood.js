@@ -36,7 +36,7 @@ function Seefood() {
     useEffect(() => {
             
         console.log('get food will begin')
-        getFood()
+         getFood()
 
             }, []);
 

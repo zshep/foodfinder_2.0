@@ -51,8 +51,8 @@ def get_allfood():
     allfood = (
         db
           .query(Food)
-          .order_by(func.rand())
-          .first()
+          .all()
+          
     )
   except:
     print('something went wrong with the get all food query')
@@ -60,17 +60,11 @@ def get_allfood():
 
   
   print('This is all of the food items')
-  
+  for food in allfood:
+    print ('Foodname:', food.foodname, 'ishot:', food.ishot)
 
-  yourfoods = {
-    'foodname': allfood.foodname,
-    'ishot': allfood.ishot,
-  }
-  print('This is yourfoods', yourfoods)
-  print(yourfoods['foodname'])
-  print(yourfoods['ishot'])
 
-  response = make_response(yourfoods, 201)
+  response = make_response(food, 201)
 
   return response
 
