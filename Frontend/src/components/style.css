@@ -63,7 +63,11 @@ section {
 
 
 /* ------------ styling for see food    ------------ */
-
+#allfooditems {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
 
 
 /* ------------ styling for the addfood ------------  */

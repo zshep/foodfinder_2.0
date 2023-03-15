@@ -6,41 +6,52 @@ import axios from "axios";
 function Seefood() {
 
     const [foods, setfood] =useState({
-      foodname: "",
-      ishot: "",
+        foodname: "",
+        ishot: ""
+  
+      });
 
-    });
     const getFood = async() => {
        await axios.get('/allfood')
         .then((response) => {
             
+            //setting variables for the foodname
+            const fooddata_name = response.data.foodname
+            const fooddata_ishot = response.data.ishot
+           
+
+            if (fooddata_ishot) {
+                setfood({
+                    foodname: fooddata_name,
+                    ishot: 'Yes'
+                })
+
+            } else {
+                setfood({
+                    foodname: fooddata_name,
+                    ishot: 'No'
+                })
+
+            }
+
             console.log(response.data)
-            console.log(response.data.foodname)
-            console.log(response.data.ishot)
-        
-            setfood({...foods, 
-                foodname: response.data.foodname,
-                ishot: response.data.ishot,
-            })
+            console.log(fooddata_name)
+            console.log(fooddata_ishot)
+            
+                        
+           
 
-        }
+            return foods
+          }
         )
-        
-        
-
     }
-
 
     useEffect(() => {
             
         console.log('get food will begin')
         getFood()
-        console.log('attempting to set the state of food')
-        
-        console.log(foods)
-        console.log('the foodname is...', foods.foodname)
-        console.log('is the food hot?', foods.ishot)
-
+          
+       
             }, []);
 
     
@@ -51,7 +62,12 @@ function Seefood() {
         
         </div>
         <div id="allfooditems">
-            <p>                  
+            <p>         
+                 Food: {foods.foodname} 
+
+            </p>
+            <p>
+                Is it hot? {foods.ishot}
             </p>
         </div>
           

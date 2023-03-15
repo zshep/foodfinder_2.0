@@ -11,17 +11,14 @@ bp = Blueprint('home', __name__, url_prefix='/')
 
 @bp.route('/')
 def index():
-
     return "Hello Shep"
 
 # route to get a random  single food item
-
-
 @bp.route('/food')
 def food_get():
   db = get_db()
 
-  # get all the food items (for testing purposes)
+  # get one random food (foodname and ishot)
   try:
     print('starting query')
     food = (
@@ -46,9 +43,7 @@ def food_get():
 
   return make_response(response, 201)
 
-# route to get all the foods
-
-
+# route to get all the foods for See Food function
 @bp.route('/allfood')
 def get_allfood():
   db = get_db()
@@ -67,18 +62,25 @@ def get_allfood():
   
   print('This is all of the food items')
   for food in allfood:
+    print ('Foodname:', food.foodname, 'ishot:', food.ishot)
     response = {
       'foodname': food.foodname,
       'ishot': food.ishot,
     }
+  print(type(allfood))
+  print(type(food))
+  print(type(food.foodname))
   
-  print(food)
-  print(allfood)
+  print('food is...', food)
+  print('all food is...', allfood)
+  print('response is...', response)
   
-  print(food.foodname)
+  
+  
 
   return make_response(response, 201)
 
+# route to add food for add food function
 @bp.route('/addfood', methods=['POST'])
 def add_food():
   data = request.get_json()
@@ -113,7 +115,7 @@ def add_food():
   response = make_response( foodData, 201)
   return response
   
-
+# random route
 @bp.route('/help')
 def get_help():
   
