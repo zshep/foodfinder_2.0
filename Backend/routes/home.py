@@ -60,25 +60,25 @@ def get_allfood():
     print(sys.exc_info()[0])
 
   
+  foodList = []
+
   print('This is all of the food items')
   for food in allfood:
-    print ('Foodname:', food.foodname, 'ishot:', food.ishot)
+    print (food.foodname, food.ishot)
+    
     response = {
-      'foodname': food.foodname,
-      'ishot': food.ishot,
-    }
-  print(type(allfood))
-  print(type(food))
-  print(type(food.foodname))
-  
-  print('food is...', food)
-  print('all food is...', allfood)
-  print('response is...', response)
+        'foodname': food.foodname,
+        'ishot': food.ishot,
+      }
+    foodList.append(response)
+   
+  print('foodList is...', foodList)
   
   
-  
+  return make_response(foodList, 201)
 
-  return make_response(response, 201)
+
+
 
 # route to add food for add food function
 @bp.route('/addfood', methods=['POST'])
