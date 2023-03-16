@@ -5,39 +5,19 @@ import axios from "axios";
 
 function Seefood() {
 
-    const [foods, setfood] =useState({
-        foodname: "",
-        ishot: ""
-  
-      });
+    const [foods, setfood] =useState([]);
 
     const getFood = async() => {
        await axios.get('/allfood')
         .then((response) => {
             
-            //setting variables for the foodname
-            const fooddata_name = response.data.foodname
-            const fooddata_ishot = response.data.ishot
-           
-
-            if (fooddata_ishot) {
-                setfood({
-                    foodname: fooddata_name,
-                    ishot: 'Yes'
-                })
-
-            } else {
-                setfood({
-                    foodname: fooddata_name,
-                    ishot: 'No'
-                })
-
-            }
-
             console.log(response.data)
-            console.log(fooddata_name)
-            console.log(fooddata_ishot)
+            //setting variables for the foodname
+            const foodData = response.data
+
+            setfood(foodData)
             
+                                
                         
            
 
@@ -62,13 +42,13 @@ function Seefood() {
         
         </div>
         <div id="allfooditems">
-            <p>         
-                 Food: {foods.foodname} 
+            {foods.map((food) => (
 
-            </p>
-            <p>
-                Is it hot? {foods.ishot}
-            </p>
+                <p>[{foods.foodname}] and {foods.ishot}</p>
+            ))
+
+
+            }
         </div>
           
         </>
@@ -85,5 +65,5 @@ export default Seefood;
                 { foodname, ishot} =>
                 <h1>{foodname}</h1>
                 <p>{ishot}</p>
-                </>
+                
             )} */
