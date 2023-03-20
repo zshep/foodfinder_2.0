@@ -14,7 +14,7 @@ function Seefood() {
             console.log(response.data)
             //setting variables for the foodname
             const foodData = response.data
-
+            console.log(response.data[0].ishot)
             setfood(foodData)
             
                                 
@@ -42,9 +42,9 @@ function Seefood() {
         
         </div>
         <div id="allfooditems">
-            {foods.map((food) => (
+            {foods.map((food, i) => (
 
-                <p>[{foods.foodname}] and {foods.ishot}</p>
+                <p key={i}> {food.foodname} <button>Delete</button> </p>
             ))
 
 
@@ -61,9 +61,4 @@ export default Seefood;
 
 
 
- /*   {foods.map(
-                { foodname, ishot} =>
-                <h1>{foodname}</h1>
-                <p>{ishot}</p>
-                
-            )} */
+ 

@@ -64,8 +64,7 @@ def get_allfood():
 
   print('This is all of the food items')
   for food in allfood:
-    print (food.foodname, food.ishot)
-    
+     
     response = {
         'foodname': food.foodname,
         'ishot': food.ishot,
