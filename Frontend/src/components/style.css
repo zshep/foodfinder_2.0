@@ -60,6 +60,15 @@ section {
     font-size: 20px;
 }
 
+.filterItems {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-content: center;
+
+}
+
 
 
 /* ------------ styling for see food    ------------ */
@@ -99,6 +108,10 @@ section {
     display:flex;
     justify-content: center;
     margin-top: 2vh;
+}
+
+.button {
+    margin: 2%;
 }
 
 .newfooditems {
