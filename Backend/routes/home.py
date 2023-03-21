@@ -114,6 +114,28 @@ def add_food():
   response = make_response( foodData, 201)
   return response
   
+# route to delete food item
+@bp.route('/deletefood/<foodname>', methods =['DELETE'])
+def delete_food(foodname):
+  
+  db = get_db()
+  print('about to do the delete request')
+
+  try:
+    db.delete(db.query(Food).filter(Food.foodname ==foodname).one())
+    db.commit()
+    print('food was deleted')
+  except:
+    print(sys.exc_info()[0])
+    db.rollback()
+
+    return jsonify(message = 'food item not found'), 404
+
+  response = make_response('', 201)
+
+  return response
+
+
 # random route
 @bp.route('/help')
 def get_help():

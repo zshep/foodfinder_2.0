@@ -55,6 +55,13 @@ function Addfood() {
         })
         
         .then((response) => {
+            
+            if (!response.ok) {
+                console.log('The response did not go through')
+
+            }
+            
+            
             console.log(response.data)
             console.log(`${response.data} has been added to the db`)
             window.alert('Your food has been updated')

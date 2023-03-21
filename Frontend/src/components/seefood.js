@@ -14,7 +14,7 @@ function Seefood() {
             console.log(response.data)
             //setting variables for the foodname
             const foodData = response.data
-            console.log(response.data[0].ishot)
+            
             setfood(foodData)
             
                                 
@@ -35,6 +35,28 @@ function Seefood() {
             }, []);
 
     
+    const clickDeletefood = async (foodname) => {
+        
+                   
+        console.log(`${foodname} delete button was pushed`)
+        
+        
+        //route call to backend to delete food
+         const response = await axios.delete(`/deletefood/${foodname}`)
+        
+         .then((response) => {
+         
+            console.log(response);
+            console.log(response.status);
+            
+            return
+        })    
+        
+        window.location.reload()
+        return response
+    }
+
+
     return(
         <>
         <div className="sectionheader">
@@ -44,7 +66,7 @@ function Seefood() {
         <div id="allfooditems">
             {foods.map((food, i) => (
 
-                <p key={i}> {food.foodname} <button>Delete</button> </p>
+                <p key={i} id={food.foodname}> {food.foodname} <button onClick={e => clickDeletefood(food.foodname)}>Delete</button> </p>
             ))
 
 
