@@ -65,10 +65,11 @@ function Seefood() {
         </div>
         <div id="allfooditems">
             {foods.map((food, i) => (
-
-                <p key={i} id={food.foodname}> {food.foodname} <button onClick={e => clickDeletefood(food.foodname)}>Delete</button> </p>
+                <div id='singlefooditem'>
+                    <p key={i} id={food.foodname}> {food.foodname}</p> 
+                    <button onClick={e => clickDeletefood(food.foodname)} className ="deletebtn">Delete</button>
+                </div>
             ))
-
 
             }
         </div>

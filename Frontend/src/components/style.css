@@ -67,8 +67,23 @@ section {
     display: flex;
     align-items: center;
     flex-direction: column;
+    margin-left: 20%;
+    margin-right: 20%;
 }
 
+#singlefooditem{
+    display: flex;
+    align-items: center;
+
+
+}
+
+.deletebtn {
+    color: black;
+    background-color: red;
+    font-weight: bold;
+
+}
 
 /* ------------ styling for the addfood ------------  */
 .foodForm {
