@@ -65,7 +65,7 @@ function Addfood() {
             console.log(response.data)
             console.log(`${response.data} has been added to the db`)
             window.alert('Your food has been updated')
-
+            window.location.reload();
         })
         .catch((error) => {
 
