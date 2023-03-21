@@ -1,44 +1,25 @@
-import React, { useState, useEffect} from "react";
-
+import React from "react";
+import axios from 'axios';
 
 
 function Findfood () {
   
-  //using use state to create JS object
-  const [data, setfooddata] = useState({
-    foodname: "",
-    ishot: "",
-  });
-
-  //using use effect to grab data
-  useEffect(() =>{
-    //using fetch to grab from flask server
-    fetch('/food').then(
-      (res) =>res.json()
-      .then(
-          (data) =>
-          {
-          console.log(data);
-          setfooddata(data);
-    })
-    );
-  
-  }, []); 
-
 
   const clickFindFood = () => {
     console.log('the find food btn was clicked');
-    fetch('/food')
-    .then((res) => {
-      const data =  res.json();
-      return data
+    axios.get('/food')
+    .then((response) => {
+
       
-    })
-    .then((data) => {
+      console.log(response.data)
+      
+      const foodnameData = response.data.foodname;
+
       const foodput = document.querySelector("#givenfooditem")
       
-      console.log('the food is...', data.food)      
-      foodput.innerHTML = data.food;
+      console.log('the food is...', foodnameData)
+         
+      foodput.innerHTML = foodnameData;
       
     })
     
@@ -56,7 +37,7 @@ function Findfood () {
         </div>
 
                 <div className="fooditem" id="givenfooditem">
-                  <p>{data.foodname}</p>
+                  <p></p>
                 </div>
 
           <div className="button">

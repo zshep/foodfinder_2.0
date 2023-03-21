@@ -47,7 +47,7 @@ section {
     
 }
 
-/* ------------ styling for See food    ------------ */
+/* ------------ styling for find food    ------------ */
 .fooditem {
     display:flex;
     flex-wrap: wrap;
@@ -58,25 +58,50 @@ section {
     height: 50%;
     font-weight: bold;
     font-size: 20px;
-
 }
 
 
 
-/* ------------ styling for See food    ------------ */
+/* ------------ styling for see food    ------------ */
+#allfooditems {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin-left: 20%;
+    margin-right: 20%;
+}
+
+#singlefooditem{
+    display: flex;
+    align-items: center;
 
 
+}
+
+.deletebtn {
+    color: black;
+    background-color: red;
+    font-weight: bold;
+
+}
 
 /* ------------ styling for the addfood ------------  */
 .foodForm {
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
     width: 100%;
     justify-content: center;
+    flex-direction: column;
 
 }
 .addbtn {
     display:flex;
     justify-content: center;
     margin-top: 2vh;
+}
+
+.newfooditems {
+    display: flex;
+
 }
