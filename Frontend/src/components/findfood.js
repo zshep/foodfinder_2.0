@@ -21,7 +21,7 @@ function Findfood() {
   //function to do get request
   async function getRequest(route) {
  
-
+    console.log('axios request has been started')
     const request = await axios.get(route)
     .then((result) => {
       
@@ -36,7 +36,7 @@ function Findfood() {
       console.error(`The get ${route} request did not work`, error);
     });
     console.log('function getRequest complete')
-      
+    console.log('')
     return request
   }
 
@@ -46,7 +46,7 @@ function Findfood() {
     console.log( 'hotfilter is:',hotfilter);
     console. log('coldfilter is:', coldfilter);
     
-    // TO DO: turn to switch statement
+   
     // TO DO: add in more filters possible
     
     //logic to get food with no filters
@@ -62,6 +62,7 @@ function Findfood() {
       console.log('cold filter search started')
       getRequest('/food/cold')
     }  
+       
   }
 
   function addfilter() {

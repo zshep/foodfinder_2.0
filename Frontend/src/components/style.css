@@ -25,6 +25,7 @@ aside {
     background-color: lightgrey;
     white-space: wrap;
     text-decoration: none;
+    height: 100vh;
 
 
 }
@@ -53,9 +54,7 @@ section {
     flex-wrap: wrap;
     align-content: center;
     justify-content: center;
-    margin-top: 12 vh;
-    margin-bottom: 2vh;
-    height: 50%;
+    height: 20%;
     font-weight: bold;
     font-size: 20px;
 }
@@ -72,7 +71,7 @@ section {
 .filteritems {
     display: flex;
     flex-direction: column;
-    
+
 
 
 }
