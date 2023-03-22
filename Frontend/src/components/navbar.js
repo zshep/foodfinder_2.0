@@ -4,7 +4,13 @@ import { NavLink } from 'react-router-dom';
 
 
 function Navbar() {
+const styles = {
+    active: {
+        backgroundColor: 'white',
 
+    }
+
+}
 
     return (
         <aside>

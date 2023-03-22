@@ -3,6 +3,8 @@
     display: flex;
     justify-content: center;
     background-color: lightgreen;
+    white-space: nowrap;
+    min-width: 30vw;
 }
 
 
@@ -12,6 +14,8 @@
 /* ------------ styling for main    ------------ */
 main {
     display: flex;
+    width: 100%;
+    margin: auto;
 
 }
 
@@ -20,22 +24,35 @@ main {
 aside {
     display: block;
     width: 20%;
-    flex-direction: column;
+    
     align-self: left;
     background-color: lightgrey;
-    white-space: wrap;
+    white-space: nowrap;
     text-decoration: none;
     height: 100vh;
-
-
+    position: relative;
+    float: left;
+    min-width: 20vw;
 }
 
 ul {
     list-style-type: none;
     text-decoration: none;
+    width: 100%;
 
 }
 
+a {
+    display: flex;
+    text-decoration: none;
+    color: black;
+    font-family:'Gill Sans', 'Gill Sans MT', 'Calibri', 'Trebuchet MS', sans-serif;
+    font-weight: 100;
+    font-size: larger;
+    margin: auto;
+    
+    margin-right: 20%;
+}
 /* ------------ styling for sections    ------------ */
 .sectionheader {
     display: flex;
