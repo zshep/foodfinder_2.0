@@ -60,7 +60,7 @@ section {
     font-size: 20px;
 }
 
-.filterItems {
+.filterContainer {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
@@ -69,7 +69,13 @@ section {
 
 }
 
+.filteritems {
+    display: flex;
+    flex-direction: column;
+    
 
+
+}
 
 /* ------------ styling for see food    ------------ */
 #allfooditems {

@@ -115,15 +115,18 @@ function Findfood() {
         <button id="addbtn" onClick={clickFindFood}>Find a food</button>
       </div>
 
-      <div className="filterItems">
+      <div className="filterContainer">
 
         <button id="filterbtn" onClick={addfilter}>Add a Filter</button>
-        <div style={styles.filter}>
+        <div className="filteritems" style={styles.filter}>
+          <div>
           <label htmlFor="ishot">search by hot food</label>
           <input type='checkbox' id="isHot" name="ishot" onChange={isHot}></input>
-
+          </div>
+          <div>
           <label htmlFor="iscold">search by cold food</label>
           <input type='checkbox' id="iscold" name="iscold" onChange={isCold}></input>
+          </div>
         </div>
 
       </div>
