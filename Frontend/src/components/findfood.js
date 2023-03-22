@@ -4,6 +4,9 @@ import axios from 'axios';
 
 
 function Findfood() {
+  //setting state for food variable
+  const [food, setFood] =useState();
+  
   // setting state to hide filter
   const [display, setDisplay] = useState('none');
   // setting state for filter
@@ -13,57 +16,50 @@ function Findfood() {
   const styles = {
     filter: {
       display: display
-
     }
   }
+  //function to do get request
+  async function getRequest(route) {
+ 
 
+    const request = await axios.get(route)
+    .then((result) => {
+      
+      console.log(result)
+      console.log(result.data)
+      console.log(result.data.foodname)
+      setFood(result.data.foodname)
+    }
+    
+    )
+    .catch((error) => {
+      console.error(`The get ${route} request did not work`, error);
+    });
+    console.log('function getRequest complete')
+      
+    return request
+  }
+
+  //function for click btn handler
   const clickFindFood = () => {
     console.log('the find food btn was clicked');
     
-    if (hotfilter == false) {
-    
-    axios.get('/food')
-      .then((response) => {
+    //logic to get food with no filters
+    if (hotfilter && coldfilter === false){
+      console.log('no filter search started')
+      getRequest('/food');
 
+    } else if ( hotfilter === true && coldfilter === false){
+      console.log('hot filter search started')
+      getRequest('/food/hot');
 
-        console.log(response.data)
-
-        const foodnameData = response.data.foodname;
-
-        const foodput = document.querySelector("#givenfooditem")
-
-        console.log('the food is...', foodnameData)
-
-        foodput.innerHTML = foodnameData;
-
-      })
-
-      .catch((error) => {
-        console.error('The fetch operation fucked up', error);
-      });
-    } else {
-      axios.get('/food/hot')
-      .then((response) => {
-
-
-        console.log(response.data)
-
-        const foodnameData = response.data.foodname;
-
-        const foodput = document.querySelector("#givenfooditem")
-
-        console.log('the food is...', foodnameData)
-
-        foodput.innerHTML = foodnameData;
-
-      })
-
-      .catch((error) => {
-        console.error('The fetch operation fucked up', error);
-      });
-
+    } else if (coldfilter === true) {
+      console.log('cold filter search started')
+      getRequest('/food/cold')
 
     }
+        
+    
   }
 
   function addfilter() {
@@ -84,7 +80,6 @@ function Findfood() {
       sethotFilter(false);
       console.log('do not filter by hot')
     }
-
   }
 
   const isCold = event => {
@@ -107,7 +102,7 @@ function Findfood() {
       </div>
 
       <div className="fooditem" id="givenfooditem">
-        <p></p>
+        <p>{food}</p>
       </div>
 
       <div className="button">

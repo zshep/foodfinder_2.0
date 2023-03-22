@@ -75,6 +75,36 @@ def food_gethot():
   return make_response(response, 201)
 
 
+#route to get 1 single random food that is cold
+@bp.route('/food/cold')
+def food_getcold():
+  db = get_db()
+  # get one random food (foodname and ishot)
+  try:
+    print('starting cold query')
+    food = (
+      db
+        .query(Food)
+        .filter(Food.ishot == False)
+        .order_by(func.rand())
+        .first()
+    )
+
+  except:
+    print('something went wrong with random query')
+    print(sys.exc_info()[0])
+
+  print('Here comes your food')
+  print(food.foodname)
+  print(food.ishot)
+
+  response = {
+    'foodname': food.foodname,
+    'ishot': food.ishot
+  }
+
+  return make_response(response, 201)
+
 # route to get all the foods for See Food function
 @bp.route('/allfood')
 def get_allfood():
