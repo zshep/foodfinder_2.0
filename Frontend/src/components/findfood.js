@@ -12,7 +12,7 @@ function Findfood() {
   // setting state for filter
   const [hotfilter, sethotFilter] = useState(false);
   const [coldfilter, setcoldFilter] = useState(false);
-
+// styles object to help hide filters
   const styles = {
     filter: {
       display: display
@@ -43,23 +43,25 @@ function Findfood() {
   //function for click btn handler
   const clickFindFood = () => {
     console.log('the find food btn was clicked');
+    console.log( 'hotfilter is:',hotfilter);
+    console. log('coldfilter is:', coldfilter);
+    
+    // TO DO: turn to switch statement
+    // TO DO: add in more filters possible
     
     //logic to get food with no filters
-    if (hotfilter && coldfilter === false){
+    if (hotfilter === false && coldfilter === false){
       console.log('no filter search started')
       getRequest('/food');
 
-    } else if ( hotfilter === true && coldfilter === false){
+    } else if ( hotfilter === true){
       console.log('hot filter search started')
       getRequest('/food/hot');
 
     } else if (coldfilter === true) {
       console.log('cold filter search started')
       getRequest('/food/cold')
-
-    }
-        
-    
+    }  
   }
 
   function addfilter() {
@@ -81,7 +83,6 @@ function Findfood() {
       console.log('do not filter by hot')
     }
   }
-
   const isCold = event => {
     if (event.target.checked) {
       console.log('filter by cold')
