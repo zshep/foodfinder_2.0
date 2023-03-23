@@ -2,7 +2,7 @@
 .header {
     display: flex;
     justify-content: center;
-    background-color: lightgreen;
+    background-color: lightslategray;
     white-space: nowrap;
     min-width: 30vw;
 }
@@ -13,7 +13,7 @@
 
 /* ------------ styling for main    ------------ */
 main {
-    display: flex;
+    display: inline-flex;
     width: 100%;
     margin: auto;
 
@@ -24,7 +24,6 @@ main {
 aside {
     display: block;
     width: 20%;
-    
     align-self: left;
     background-color: lightgrey;
     white-space: nowrap;
@@ -50,6 +49,7 @@ a {
     font-weight: 100;
     font-size: larger;
     margin: auto;
+    padding: 2%;
     
     margin-right: 20%;
 }
@@ -61,6 +61,7 @@ a {
 }
 section {
     width: 80%;
+    background-color: lightgreen;
 
     
 }
