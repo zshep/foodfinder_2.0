@@ -1,70 +1,38 @@
-# Getting Started with Create React App
+# Food Finder 2.0 [![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
+  
+![Alt text](./screenshot1.jpg?raw=true "Screenshot of pick food")
+![Alt text](./screenshot2.jpg?raw=true "Screenshot of add food")
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+ ## **Table of Contents**
+  
+ [Description](#id-1)
+  
+ [Installation](#id-2)
+  
+ [Usage](#id-3)
+  
+  
+ [Liscense](#id-5)
+  
+ [Tests](#id-6)
+  
+ [Questions](#id-7) 
+  
+ <h2 id="id-1">Description</h2> 
+ Need help deciding what to eat? Use the Food Finder 2.0 to randomly pull a food item from a SQL database. In this version users can not only add items, but can see all of their food items and delete food items as well.
+  
+  
+ <h2 id="id-3">Usage 
+ Instructions </h2>: Click the "find a food" button to get a random food choice from a mysql database. Click on the "Add a Filter" button to find foods that are served hot or cold. You can easily add a new food item to your data base by clicking on "Add Food" on the left hand menu. Click on the "See Food" link to see all of your foods. From that menu you can choose to delete a food item.
+ 
+ 
+ <h2 id="id-5">License</h2> 
+ <a href="((https://opensource.org/licenses/Apache-2.0))">Apache 2.0 License</a>
+  
 
-## Available Scripts
-
-In the project directory, you can run:
-
-### `npm start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+  
+ <h2 id="id-7">Contact</h2> 
+ GitHub: http://www.github.com/zshep 
+  
+ Email: zsheperdigian@gmail.com 
+    

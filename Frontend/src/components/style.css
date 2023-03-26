@@ -2,7 +2,7 @@
 .header {
     display: flex;
     justify-content: center;
-    background-color: lightslategray;
+    background-color: #545454;
     white-space: nowrap;
     min-width: 30vw;
 }
@@ -25,7 +25,7 @@ aside {
     display: block;
     width: 20%;
     align-self: left;
-    background-color: lightgrey;
+    background-color: slategray;
     white-space: nowrap;
     text-decoration: none;
     height: 100vh;
@@ -61,7 +61,7 @@ a {
 }
 section {
     width: 80%;
-    background-color: lightgreen;
+    background-color: #6BAA75;
 
     
 }
@@ -106,7 +106,11 @@ section {
 #singlefooditem{
     display: flex;
     align-items: center;
-
+    width: 60%;
+    min-width: 5vw;
+    justify-content: space-between;
+    white-space: nowrap;
+    
 
 }
 
@@ -139,5 +143,9 @@ section {
 
 .newfooditems {
     display: flex;
-
+    flex-wrap: nowrap;
+    white-space: nowrap;
+    width: 55%;
+    margin: 5%;
+    justify-content: space-between;
 }
