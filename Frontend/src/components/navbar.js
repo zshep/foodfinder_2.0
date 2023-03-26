@@ -1,10 +1,21 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { NavLink } from 'react-router-dom';
 
 
 
 function Navbar() {
 
+/* const [active, setactive]=useState(styles.nonActive)
+
+ const styles = {
+    active: {
+        backgroundColor: 'white',
+    },
+    nonActive: {
+      backgroundColor: 'gray',  
+    },
+
+} */
 
     return (
         <aside>
